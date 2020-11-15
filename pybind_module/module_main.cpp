@@ -6,7 +6,7 @@
 
 void greet()
 {
-	std::wcout << L"Hello World";
+	std::cout << "Hello World\n";
 }
 
 // binds c++ stuff to Python module that can then be accessible from Python interpreter
@@ -25,7 +25,15 @@ PYBIND11_MODULE( pybind_module, m )
 #endif
 }
 
+
 int main()
 {
 	_wputenv( L"PYTHONHOME=C:\\Program Files\\Python36" );
 }
+
+// Now to use that Python module from Python
+// 
+// go to the output directory
+// open a python interpreter there
+// import pybind_module as pm
+// pm.greet()
