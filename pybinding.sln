@@ -7,6 +7,12 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pybinding", "pybinding\pybi
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pybind_module", "pybind_module\pybind_module.vcxproj", "{4954AA64-AF2F-41F6-BD17-9FE3AB888370}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{33C928F6-9BC7-4551-8CB2-DB98B9066177}"
+	ProjectSection(SolutionItems) = preProject
+		x64\Release\bestie.py = x64\Release\bestie.py
+		x64\Debug\bestie.py = x64\Debug\bestie.py
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64

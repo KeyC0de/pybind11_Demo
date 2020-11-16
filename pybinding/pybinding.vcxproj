@@ -52,7 +52,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>python36_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>python36.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>C:\Program Files\Python36\libs</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>

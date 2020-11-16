@@ -1,8 +1,13 @@
 #include "pybind11/pybind11.h"	// must go first
+
+namespace py = pybind11;
+
 #include <iostream>
 
-// create a Python module from C++
-// you can then load it up from Python and use it
+// Create a Python module from C++ code
+// You can then load it up from Python and use it
+// to add it as a permanent module of your Python environment check:
+// https://docs.microsoft.com/en-us/visualstudio/python/working-with-c-cpp-python-in-visual-studio?view=vs-2019#make-the-dll-available-to-python
 
 void greet()
 {
@@ -23,12 +28,6 @@ PYBIND11_MODULE( pybind_module, m )
 #else
     m.attr("__version__") = "dev";
 #endif
-}
-
-
-int main()
-{
-	_wputenv( L"PYTHONHOME=C:\\Program Files\\Python36" );
 }
 
 // Now to use that Python module from Python
