@@ -1,5 +1,6 @@
 #include "pybind11/embed.h"
 //#include <Python.h>
+#include "utils.h"
 
 namespace py = pybind11;
 
@@ -48,14 +49,14 @@ PYBIND11_EMBEDDED_MODULE( embedded_module, m )
 }
 
 
-int main( int argc, wchar_t* argv[] )
+int main( int argc, char* argv[] )
 {
-	Py_SetProgramName( argv[0] );
+	Py_SetProgramName( s2ws( argv[0] ).data() );
 
-	wchar_t pythonHome[] = L"PYTHONHOME=C:\\Program Files\\Python36";
-	_wputenv( pythonHome );
+	char pythonHome[] = "PYTHONHOME=C:\\Program Files\\Python36";
+	_putenv( pythonHome );
 	py::scoped_interpreter guard{};
-	Py_SetPythonHome( pythonHome );
+	Py_SetPythonHome( s2ws( pythonHome ).data() );
 	
 	
 	py::exec( "print('hello world')" );
