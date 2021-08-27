@@ -1,12 +1,11 @@
 #include "pybind11/embed.h"
 //#include <Python.h>
-#include "utils.h"
-
-namespace py = pybind11;
-
-
 #include <iostream>
 #include <string>
+#include "utils.h"
+
+
+namespace py = pybind11;
 
 void talkToMe()
 {
@@ -38,7 +37,7 @@ PYBIND11_EMBEDDED_MODULE( embedded_module, m )
 {
 	m.doc() = "Embedded module";
 
-	// add stuff to the module
+	// expose C++ stuff to the Python module
 	m.def( "talkToMe", &talkToMe );
 	m.def( "setCounter", &setCounter );
 	m.def( "getCounter", &getCounter );

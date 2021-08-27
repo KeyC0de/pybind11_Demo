@@ -1,6 +1,7 @@
 #include <codecvt>
 #include "utils.h"
 
+
 // or: wide_string( s.begin(),s.end() );
 // codecvt_utf16/8 is deprecated from C++17 although it seems to work fine
 std::wstring s2ws( const std::string& s )
