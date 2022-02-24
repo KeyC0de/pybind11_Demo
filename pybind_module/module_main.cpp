@@ -22,7 +22,8 @@ PYBIND11_MODULE( pybind_module, m )
 	m.doc() = "pybind_module";
 
 	// bind the module's functions
-	m.def( "greet", &greet );
+	m.def( "greet",
+		&greet );
 #ifdef VERSION_INFO
 	m.attr("__version__") = VERSION_INFO;
 #else

@@ -7,4 +7,5 @@ print( em2.getCounter() )
 
 #def callFromCpp( vec : em2.Vec2 ):
 def callFromCpp( vec ):
-	print( "Called from C++! ({},{})\n".format( vec.x, vec.y ) )
+	print( "Called from C++! ({},{})\n".format( vec.x,
+											vec.y ) )

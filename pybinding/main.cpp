@@ -9,7 +9,7 @@ namespace py = pybind11;
 
 void talkToMe()
 {
-	std::cout << "Say something dammit!" << '\n';
+	std::cout << "Say something dammit!\n";
 }
 
 static int g_counter = 0;
@@ -24,7 +24,6 @@ int getCounter()
 }
 
 // here we can embed Python to C++
-
 struct Vec2
 {
 	float x;
@@ -48,13 +47,14 @@ PYBIND11_EMBEDDED_MODULE( embedded_module, m )
 }
 
 
-int main( int argc, char* argv[] )
+int main( int argc,
+	char* argv[] )
 {
 	Py_SetProgramName( s2ws( argv[0] ).data() );
 
 	char pythonHome[] = "PYTHONHOME=C:\\Program Files\\Python36";
 	_putenv( pythonHome );
-	py::scoped_interpreter guard{};
+	py::scoped_interpreter pyInterpreter{};
 	Py_SetPythonHome( s2ws( pythonHome ).data() );
 	
 	
@@ -83,5 +83,8 @@ int main( int argc, char* argv[] )
 	auto callFromCppFunction = bestie.attr( "callFromCpp" );
 	callFromCppFunction( vec );
 
-	std::system( "pause" );
+#if defined _DEBUG && !defined NDEBUG
+	while ( !getchar() );
+#endif
+	return EXIT_SUCCESS;
 }
